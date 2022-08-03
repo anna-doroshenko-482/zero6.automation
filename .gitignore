@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+.idea
+test-results
+*.log
+selenoid\screenshots
+selenoid/logs
+selenoid/video
+selenoid/screenshots
+allure-report
+allure-results
+allure-results.zip
+screenshots
+video-result

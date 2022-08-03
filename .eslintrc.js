@@ -1,0 +1,87 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
+  rules: {
+    '@typescript-eslint/explicit-function-return-type': [
+      'off',
+      {
+        allowTypedFunctionExpressions: true,
+      },
+    ],
+    'max-len': ['error', { code: 350 }],
+    'prettier/prettier': 'error',
+    'no-var': 'error',
+    'newline-per-chained-call': 'off',
+    'prefer-template': 'error',
+    'arrow-body-style': 'off',
+    'prefer-arrow-callback': 'off',
+    curly: ['error', 'all'],
+    'no-console': ['error', { allow: ['debug', 'table', 'error'] }],
+    'no-restricted-globals': 'off',
+    'no-restricted-syntax': ['error', 'DebuggerStatement', 'LabeledStatement', 'WithStatement'],
+    'import/prefer-default-export': 'off',
+    'no-continue': 'off',
+    'no-plusplus': 'off',
+    'no-await-in-loop': 'off',
+    'no-trailing-spaces': 'warn',
+    'no-template-curly-in-string': 'error',
+    'no-unused-vars': [
+      'warn',
+      {
+        vars: 'all',
+        varsIgnorePattern: '[$]',
+        args: 'none',
+      },
+    ],
+    'no-shadow': 'off',
+    'import/no-named-as-default': 'off',
+    'prefer-destructuring': [
+      'warn',
+      {
+        VariableDeclarator: {
+          object: true,
+          array: false,
+        },
+        AssignmentExpression: {
+          object: true,
+          array: false,
+        },
+      },
+    ],
+    'getter-return': [
+      'warn',
+      {
+        allowImplicit: true,
+      },
+    ],
+    'no-dupe-args': 'error',
+    'no-dupe-keys': 'error',
+    'no-duplicate-case': 'error',
+    'no-duplicate-imports': 'error',
+    'no-extra-boolean-cast': 'error',
+    'no-unreachable': 'error',
+    'valid-typeof': 'error',
+    'no-invalid-regexp': 'error',
+    'no-invalid-this': 'error',
+    'default-case': 'warn',
+    'switch-colon-spacing': 'error',
+    'no-fallthrough': 'error',
+    'no-implicit-coercion': 'error',
+    'no-return-await': 'error',
+    'require-await': 'error',
+    'no-useless-return': 'error',
+    'no-negated-condition': 'warn',
+    'no-const-assign': 'error',
+    'no-unneeded-ternary': 'warn',
+    'no-useless-computed-key': 'error',
+  },
+  plugins: ['@typescript-eslint', 'prettier', 'chai-friendly'],
+}

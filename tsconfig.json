@@ -1,0 +1,53 @@
+{
+  "typeAcquisition": {
+    "enable": true
+  },
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"],
+      "src/*": ["./src/*"],
+      "test/*": ["specs/*"]
+    },
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": ["es2018","dom", "es6", "es2017", "esnext.asynciterable"],
+    "pretty": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "types": [
+      "mocha",
+      "node",
+      "webdriverio/async",
+      "@wdio/mocha-framework",
+      "@wdio/shared-store-service",
+      "wdio-intercept-service",
+      "chai-like"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "typeRoots": [
+      "./types",
+      "node_modules/@types",
+      "node_modules",
+      "typings"
+    ]
+  },
+  "include": [
+    "utils",
+    "**/*.ts",
+    "**/*.json",
+    "config/runners/firefox.conf.ts",
+    "config/runners/chrome.conf.ts"
+  ],
+  "exclude": [
+    "./node_modules"
+  ]
+}

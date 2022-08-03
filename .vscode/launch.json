@@ -1,0 +1,44 @@
+  
+{
+    "version": "1.0.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "☕ Mocha Current File",
+        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+        "args": [
+          "--no-timeouts",
+          "--colors",
+          "${file}",
+          "--require",
+          "ts-node/register",
+          "--require",
+          "tsconfig-paths/register"
+        ],
+        "console": "integratedTerminal",
+        "sourceMaps": true,
+        "internalConsoleOptions": "neverOpen",
+      },
+      {
+        "name": "🌍 spec - chrome",
+        "type": "node",
+        "request": "launch",
+        "args": ["config/runners/chrome.conf.ts", "--spec", "${file}"],
+        "cwd": "${workspaceFolder}",
+        "autoAttachChildProcesses": true,
+        "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "🦊 spec - firefox",
+        "type": "node",
+        "request": "launch",
+        "args": ["config/runners/firefox.conf.ts", "--spec", "${file}", "--firefox"],
+        "cwd": "${workspaceFolder}",
+        "autoAttachChildProcesses": true,
+        "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+        "console": "integratedTerminal"
+      },
+    ]
+  }

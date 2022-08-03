@@ -1,0 +1,6 @@
+.vscode
+allure-report
+allure-results
+node-modules
+test-results
+selenoid/logs
