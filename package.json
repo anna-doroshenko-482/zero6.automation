@@ -13,7 +13,7 @@
     "selenoid:run": "sleep 1 && wdio config/runners/selenoid.conf.ts --files --spec ./specs/web/start.test.ts",
     "test:local:chrome:specific": "wdio config/runners/chrome.conf.ts --files --spec ./specs/web/start.test.ts",
     "test:local:chrome:testSuite": "wdio config/runners/chrome.conf.ts --suite testSpecs",
-    "test:local:chrome": "wdio config/runners/chrome.conf.ts --files --spec ./specs/web/start.test.ts",
+    "test:local:chrome": "wdio config/runners/chrome.conf.ts --files --spec ./specs/web/login.test.ts",
     "test:local:chrome:tags": "wdio config/runners/chrome.conf.ts --mochaOpts.grep smoke",
     "test:local:firefox": "wdio config/runners/firefox.conf.ts --files --spec ./specs/web/start.test.ts",
     "allure:open": "allure generate allure-results --clean -o allure-report && allure open",

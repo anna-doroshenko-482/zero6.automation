@@ -1,4 +1,3 @@
-// @ts-ignore
 export const config: WebdriverIO.Config = {
     //
     // ====================
@@ -26,7 +25,7 @@ export const config: WebdriverIO.Config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        './specs/start.test.ts'
     ],
     //
     // ============
@@ -95,10 +94,10 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'http://20.0.59.108/',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 60000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -139,7 +138,7 @@ export const config: WebdriverIO.Config = {
 
     //
     // Options to be passed to Mocha.
-    // See the full list at http://mochajs.org/
+  // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000

@@ -9,7 +9,7 @@ TEST_REPORTER = [ spec|mocha-junit-reporter|nyan|]
 ### How to run test separately with mocha
 npm run mocha:specific 'Calculate current service for current user without scratch card for 3 months. 80Mb' - it name
 ### How to run suite separately with mocha
-npm run mocha:specific 'Billing api. Calculate internet accounts' - describe name
+npm run mocha:specific 'Origin api. Calculate internet accounts' - describe name
 ### Before installation
 ```
 rm -rf node_modules && npm cache clean -f

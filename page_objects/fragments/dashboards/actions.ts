@@ -23,7 +23,7 @@ interface IActionButton {
 }
 
 enum ActionBtns {
-  logIn = 'Войти',
+  Login = 'Login',
   logOut = 'Выход',
   search = 'Поиск',
   applyFilter = 'Применить фильтр',

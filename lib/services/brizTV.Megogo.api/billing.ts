@@ -7,7 +7,7 @@ class Billing extends MegogoAPI {
     super(configuration)
   }
 
-  /** [GET] Billing | Parameters
+  /** [GET] Origin | Parameters
    * https://devmegogoapi.briz.tv/apidoc/#api-Billing-GetApiParameters
    * https://devmegogoapi.briz.tv/api/parameters
    * @returns Promise
@@ -22,7 +22,7 @@ class Billing extends MegogoAPI {
     })
   }
 
-  /** [GET] Billing | Products (+TV genres)
+  /** [GET] Origin | Products (+TV genres)
    * https://devmegogoapi.briz.tv/apidoc/#api-Billing-GetApiProductsChannelsGrouped
    * https://devmegogoapi.briz.tv/api/products/channels-grouped
    * @returns Promise
@@ -37,7 +37,7 @@ class Billing extends MegogoAPI {
     })
   }
 
-  /** [GET] Billing | Products
+  /** [GET] Origin | Products
    * https://devmegogoapi.briz.tv/apidoc/#api-Billing-GetApiProducts
    * https://devmegogoapi.briz.tv/api/products
    * @returns Promise
@@ -52,7 +52,7 @@ class Billing extends MegogoAPI {
     })
   }
 
-  /** [GET] Billing | User cards
+  /** [GET] Origin | User cards
    * https://devmegogoapi.briz.tv/apidoc/#api-Billing-GetApiCards
    * https://devmegogoapi.briz.tv/api/cards
    * @returns Promise
@@ -67,7 +67,7 @@ class Billing extends MegogoAPI {
     })
   }
 
-  /** [GET] Billing | User transactions
+  /** [GET] Origin | User transactions
    * https://devmegogoapi.briz.tv/apidoc/#api-Billing-GetApiTransactions
    * https://devmegogoapi.briz.tv/api/transactions
    * @params token?: string, params?: { limit: number | string; offset: number | string }, lang = 'ua'
