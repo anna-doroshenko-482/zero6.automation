@@ -2,36 +2,18 @@ export const webUiApi = {
   digitalOcean: {
     host: `http://${process.env.SERVER_IP}:8000/`,
     users: {
-      raven: {
-        login: 'raven@breezein.net',
-        password: '123123',
+      name: {
+        login: '',
+        password: '',
       },
     },
   },
   dev02: {
-    host: 'https://dbilling.briz.ua/',
+    host: 'http://20.0.59.108/',
     users: {
-      raven: {
-        login: 'raven@breezein.net',
-        password: '123123',
-      },
-    },
-  },
-  uat: {
-    host: 'https://dbilling.briz.ua/',
-    users: {
-      raven: {
-        login: 'raven@breezein.net',
-        password: '123123',
-      },
-    },
-  },
-  stage: {
-    host: 'https://dbilling.briz.ua/',
-    users: {
-      raven: {
-        login: 'raven@breezein.net',
-        password: '123123',
+      admin: {
+        login: 'admin@mailinator.com',
+        password: 'test',
       },
     },
   },

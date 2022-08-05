@@ -10,7 +10,7 @@ export const config: WebdriverIO.Config = {
       maxInstances: 1,
       browserName: 'firefox',
       'moz:firefoxOptions':  {
-        args: ['--width=1920', '--height=1080'],
+        // args: ['--width=1920', '--height=1080'],
         prefs: {
           'browser.download.dir': global.downloadDir.firefox,
           'browser.download.folderList': 2,

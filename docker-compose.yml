@@ -41,10 +41,10 @@ services:
         "-log-output-dir", "/opt/selenoid/logs",
         "-timeout", "30m",
         "-max-timeout", "30m",
-        "-container-network", "billing-ui_automation",
+        "-container-network", "zero6-ui_automation",
         "-video-recorder-image", "selenoid/video-recorder:7.1"
       ]
-    networks: 
+    networks:
       - automation
 
   selenoid-ui:

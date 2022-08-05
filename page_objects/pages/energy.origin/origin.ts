@@ -225,45 +225,45 @@ class Origin<T> extends Page<IOrigin> {
     )
   }
 
-  public async datapickerWithSelects(
-    data: { day: number; month: string; year: string },
-    selectorData: {selector: ChainablePromiseElement<Promise<WebdriverIO.Element>>, input: string}
-  ): Promise<any> {
-    const inputField = selectorData.input
-
-    await (await selectorData.selector).waitForDisplayed()
-    await (await selectorData.selector).click()
-
-    async function chooseSelect(select, value) {
-      const element = await (await (await selectorData.selector).$('..')).$(select)
-      await element.waitForDisplayed()
-      await element.scrollIntoView()
-      await element.waitForClickable()
-      await element.click()
-      const selectValue = await (await element.$(`option*=${value}`)).getValue()
-      await element.selectByVisibleText(value)
-      return selectValue
-    }
-
-    const chosenYear = await chooseSelect('[class="picker__select--year"]', `${data.year}`)
-    let chosenMount: any = await chooseSelect('[class="picker__select--month"]', `${data.month}`)
-
-    const dataPick = await (await (await selectorData.selector).$('..')).$(.$(`[class="picker__day picker__day--infocus"][aria-label*="${data.day} ${data.month} ${data.year} г."]`)
-    await dataPick.waitForDisplayed()
-    await dataPick.scrollIntoView()
-    await dataPick.waitForClickable()
-    await dataPick.click()
-    // await dataPick.click()
-    const checkSelectInput = await (await (await selectorData.selector).$('..')).$(inputField)
-    const chosenData = await checkSelectInput.getValue()
-    chosenMount = Number(chosenMount) + 1
-    if (chosenMount.toString().length === 1) {
-      chosenMount = `0${chosenMount}`
-    }
-    const pickedDate = `${chosenYear}-${chosenMount}-${data.day}`
-
-    return { chosenData: chosenData, pickedDate: pickedDate }
-  }
+  // public async datapickerWithSelects(
+  //   data: { day: number; month: string; year: string },
+  //   selectorData: {selector: ChainablePromiseElement<Promise<WebdriverIO.Element>>, input: string}
+  // ): Promise<any> {
+  //   const inputField = selectorData.input
+  //
+  //   await (await selectorData.selector).waitForDisplayed()
+  //   await (await selectorData.selector).click()
+  //
+  //   async function chooseSelect(select, value) {
+  //     const element = await (await (await selectorData.selector).$('..')).$(select)
+  //     await element.waitForDisplayed()
+  //     await element.scrollIntoView()
+  //     await element.waitForClickable()
+  //     await element.click()
+  //     const selectValue = await (await element.$(`option*=${value}`)).getValue()
+  //     await element.selectByVisibleText(value)
+  //     return selectValue
+  //   }
+  //
+  //   const chosenYear = await chooseSelect('[class="picker__select--year"]', `${data.year}`)
+  //   let chosenMount: any = await chooseSelect('[class="picker__select--month"]', `${data.month}`)
+  //
+  //   const dataPick = await (await (await selectorData.selector).$('..')).$(.$(`[class="picker__day picker__day--infocus"][aria-label*="${data.day} ${data.month} ${data.year} г."]`)
+  //   await dataPick.waitForDisplayed()
+  //   await dataPick.scrollIntoView()
+  //   await dataPick.waitForClickable()
+  //   await dataPick.click()
+  //   // await dataPick.click()
+  //   const checkSelectInput = await (await (await selectorData.selector).$('..')).$(inputField)
+  //   const chosenData = await checkSelectInput.getValue()
+  //   chosenMount = Number(chosenMount) + 1
+  //   if (chosenMount.toString().length === 1) {
+  //     chosenMount = `0${chosenMount}`
+  //   }
+  //   const pickedDate = `${chosenYear}-${chosenMount}-${data.day}`
+  //
+  //   return { chosenData: chosenData, pickedDate: pickedDate }
+  // }
 
   public async addValue(selector, value) {
     const inputField = await $(selector)

@@ -29,8 +29,8 @@
 //     this.logoBriz = $('a[name="top"]>img')
 //     this.showMenu = $('[data-cy="header-toggle-menu"]')
 //     this.filterCheck = $('[data-cy="filterType"]')
-//     this.search = $('.billing-header-grid-container input[name="uni"]')
-//     this.searchButton = $('.billing-header-grid-container button')
+//     this.search = $('.zero6-header-grid-container input[name="uni"]')
+//     this.searchButton = $('.zero6-header-grid-container button')
 //   }
 //
 //   public async typeIn(data) {

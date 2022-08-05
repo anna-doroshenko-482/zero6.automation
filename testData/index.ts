@@ -1,6 +1,1 @@
-export * from './billing'
-export * from './billingApi'
-export * from './user-api'
-export * from './paymentGateway'
-export * from './brizTvMegogo.api.data'
-export * from './brizTvBilling.api.data'
+export * from './web'

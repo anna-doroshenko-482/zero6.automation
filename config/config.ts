@@ -1,4 +1,4 @@
-import { billing, selenoid } from './apps'
+import { zero6, selenoid } from './apps'
 
 function getConfiguration() {
   const envList = ['uat', 'digitalOcean', 'dev02', 'qa', 'stage']
@@ -6,7 +6,7 @@ function getConfiguration() {
   if (envList.includes(currentEnv)) {
     return {
       env: currentEnv,
-      billing: billing[currentEnv],
+      zero6: zero6[currentEnv],
       selenoid: selenoid[currentEnv],
     }
   } else {

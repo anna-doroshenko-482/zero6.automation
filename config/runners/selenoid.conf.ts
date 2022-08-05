@@ -22,9 +22,6 @@ export const config: WebdriverIO.Config = {
     testSpecs: [
       './specs/web/start.test.ts',
     ],
-    menuSpecs: [
-      './specs/web/start.test.ts',
-    ],
   },
   maxInstances: 1,
   capabilities: [

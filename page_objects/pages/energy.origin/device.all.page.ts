@@ -6,13 +6,19 @@ import { HomePage } from './home.page'
 import { ChainablePromiseElement } from 'node_modules/webdriverio/build/types'
 const { bUser } = apiManagerMocha
 
-interface ILoginPage {
+interface IDeviceAllPage {
   actionButton?: IActionButton | IActionButton[]
   username?: string
   password?: string
 }
 
-class LoginPage extends Origin<ILoginPage> {
+enum DeviceAllPageSelectors {
+  pageTitle = 'pageTitle',
+  sendButton = 'sendButton',
+
+}
+
+class DeviceAllPage extends Origin<IDeviceAllPage> {
   private actionButton: ActionButton
   private username: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private password: ChainablePromiseElement<Promise<WebdriverIO.Element>>
@@ -23,11 +29,11 @@ class LoginPage extends Origin<ILoginPage> {
     this.actionButton = new ActionButton(this.root)
     this.username = $('input[data-cy="email"]')
     this.password = $('input[data-cy="password"]')
-    this.root = $('#root')
+    this.root = $('body>[class=" FCK__ShowTableBorders"]')
     this.homePage = new HomePage()
   }
 
-  async login(user: string) {
+  async start(){
     let link: string = null
     log.debug(this.permission)
     if (process.env.SERVER_IP) {
@@ -38,33 +44,13 @@ class LoginPage extends Origin<ILoginPage> {
     try {
       browser.getUrl()
     } catch (e) {
-      throw new Error(`Something is wrong.`)
+      throw new Error(`Couldn't reach necessary site. Please, check VPN connection and try again.`)
     }
     await browser.url(link)
-    await this.typeIn({ username: this.permission[user].login, password: this.permission[user].password })
-    await browser.pause(300)
-    await this.clickOn({ actionButton: { name: ActionBtns.Login } })
-    // const signInCookies = await browser.getCookies('SIGN')
-    // this.cookie = signInCookies[0]
   }
 
-  async apiLogin(){
-    const token = await bUser.getToken()
-    return token
-  }
-
-  // async verifyCookieWorkflow(): Promise<void> {
-  //   const link = `https://${this.appLink}`
-  //   await browser.deleteCookies()
-  //   await browser.url(link)
-  //   await this.homePage.transfer(Link.ordersType)
-  //   await this.userField.waitForDisplayed()
-  //   await browser.setCookies([{ name: this.cookie.name, value: this.cookie.value }])
-  //   await this.homePage.transfer(Link.ordersType)
-  //   await this.userField.waitForExist({ reverse: true })
-  // }
 }
 
-decorateService(LoginPage)
+decorateService(DeviceAllPage)
 
-export { LoginPage }
+export { DeviceAllPage, DeviceAllPageSelectors }
