@@ -3,7 +3,7 @@ import {
   LoginPage,
   HomePage,
   DeviceAllPage,
-} from "./pages";
+} from './pages'
 
 
 export const webPages = () => ({

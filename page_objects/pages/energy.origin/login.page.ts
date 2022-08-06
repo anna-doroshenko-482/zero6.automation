@@ -10,17 +10,19 @@ interface ILoginPage {
   actionButton?: IActionButton | IActionButton[]
   username?: string
   password?: string
+  imgTitle?: string
 }
 
 class LoginPage extends Origin<ILoginPage> {
   private actionButton: ActionButton
   private username: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private password: ChainablePromiseElement<Promise<WebdriverIO.Element>>
-  private homePage: HomePage
+   imgTitle: ChainablePromiseElement<Promise<WebdriverIO.Element>>
 
   constructor() {
     super('Origin')
     this.actionButton = new ActionButton(this.root)
+    this.imgTitle = $('#Login-as-Member>image')
     this.username = $('input[data-cy="email"]')
     this.password = $('input[data-cy="password"]')
     this.root = $('#root')
