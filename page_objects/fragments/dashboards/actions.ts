@@ -1,5 +1,6 @@
 import { ChainablePromiseElement } from "node_modules/webdriverio/build/types";
 import {
+  LoginPageSelectors
 
 } from "page_objects";
 import { fileParser, timer } from "helpers";
@@ -14,6 +15,7 @@ const { selenoid } = apiManager
 interface IActionButton {
   name:
     | ActionBtns
+    | LoginPageSelectors
 
   navigateToPage?: boolean
   download?: boolean
@@ -23,7 +25,7 @@ interface IActionButton {
 }
 
 enum ActionBtns {
-  Login = 'Login',
+  Login = 'LOGIN',
   logOut = 'Выход',
   search = 'Поиск',
   applyFilter = 'Применить фильтр',

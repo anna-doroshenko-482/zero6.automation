@@ -1,4 +1,4 @@
-import { billing_api, user_api, webUiApi, paymentGateway_api, ott_billing_api, megogo_api } from './apps'
+import { zero6,  webUiApi } from './apps'
 
 function getConfiguration() {
   const envList = ['uat', 'digitalOcean', 'dev02', 'qa', 'stage']
@@ -7,12 +7,9 @@ function getConfiguration() {
     console.debug(`Using ${currentEnv} environment`)
     return {
       env: currentEnv,
-      billing_api: billing_api[currentEnv],
-      billing_ui: webUiApi[currentEnv],
-      user_ip: user_api[currentEnv],
-      paymentGateway_api: paymentGateway_api[currentEnv],
-      ott_billing_api: ott_billing_api[currentEnv],
-      megogo_api: megogo_api[currentEnv],
+      // zero6_api: zero6[currentEnv],
+      zero6_ui: webUiApi[currentEnv],
+      // user_ip: user_api[currentEnv],
     }
   } else {
     throw new Error('Environment unspecified')

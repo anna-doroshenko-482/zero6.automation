@@ -1,9 +1,9 @@
 /* eslint-disable no-return-await */
 import { AuthByUserType } from 'lib/types'
 import { decorateService } from 'utils'
-import { BillingAPI } from '../billing/billing.api'
+import { Zero6API } from '../zero6/zero6.api'
 
-class AuthByUser extends BillingAPI {
+class AuthByUser extends Zero6API {
   constructor(configuration: AuthByUser) {
     super(configuration)
   }

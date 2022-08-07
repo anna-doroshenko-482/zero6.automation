@@ -11,12 +11,19 @@ interface ILoginPage {
   username?: string
   password?: string
   imgTitle?: string
+  LOGIN?: string
+}
+
+enum LoginPageSelectors {
+  LOGIN = 'LOGIN',
+
 }
 
 class LoginPage extends Origin<ILoginPage> {
   private actionButton: ActionButton
   private username: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private password: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  private LOGIN: ChainablePromiseElement<Promise<WebdriverIO.Element>>
    imgTitle: ChainablePromiseElement<Promise<WebdriverIO.Element>>
 
   constructor() {
@@ -25,35 +32,37 @@ class LoginPage extends Origin<ILoginPage> {
     this.imgTitle = $('#Login-as-Member>image')
     this.username = $('input[data-cy="email"]')
     this.password = $('input[data-cy="password"]')
+    this.LOGIN = 'button[data-cy="login-button"]'
     this.root = $('#root')
     this.homePage = new HomePage()
   }
 
-  async login(user: string) {
-    let link: string = null
-    log.debug(this.permission)
-    if (process.env.SERVER_IP) {
-      link = `http://${this.appLink}`
-    } else {
-      link = `https://${this.appLink}`
-    }
-    try {
-      browser.getUrl()
-    } catch (e) {
-      throw new Error(`Something is wrong.`)
-    }
-    await browser.url(link)
+  async Login(user: string) {
+    // let link: string = null
+    // log.debug(this.permission)
+    // if (process.env.SERVER_IP) {
+    //   link = `http://${this.appLink}`
+    // } else {
+    //   link = `https://${this.appLink}`
+    // }
+    // try {
+    //   browser.getUrl()
+    // } catch (e) {
+    //   throw new Error(`Something is wrong.`)
+    // }
+    // await browser.url(link)
     await this.typeIn({ username: this.permission[user].login, password: this.permission[user].password })
     await browser.pause(300)
-    await this.clickOn({ actionButton: { name: ActionBtns.Login } })
+    await this.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
+
     // const signInCookies = await browser.getCookies('SIGN')
     // this.cookie = signInCookies[0]
   }
 
-  async apiLogin(){
-    const token = await bUser.getToken()
-    return token
-  }
+  // async apiLogin(){
+  //   const token = await bUser.getToken()
+  //   return token
+  // }
 
   // async verifyCookieWorkflow(): Promise<void> {
   //   const link = `https://${this.appLink}`
@@ -69,4 +78,4 @@ class LoginPage extends Origin<ILoginPage> {
 
 decorateService(LoginPage)
 
-export { LoginPage }
+export { LoginPage, LoginPageSelectors }

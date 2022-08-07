@@ -42,8 +42,8 @@ class Origin<T> extends Page<IOrigin> {
 
   constructor(title?: string) {
     super(title)
-    this.config = config.billing
-    this.token = this.config.samlRequest
+    this.config = config.zero6
+    // this.token = this.config.samlRequest
     this.permission = this.config.users
     this.appLink = this.config.appLink
     this.root = $('body')
