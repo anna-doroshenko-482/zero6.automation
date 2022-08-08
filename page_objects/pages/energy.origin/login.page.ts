@@ -2,7 +2,7 @@ import { apiManagerMocha, log } from 'lib'
 import { IActionButton, ActionButton, ActionBtns } from 'page_objects/fragments'
 import { decorateService } from 'utils'
 import { Origin } from './origin'
-import { HomePage } from './home.page'
+import { HeaderPage } from './header'
 import { ChainablePromiseElement } from 'node_modules/webdriverio/build/types'
 const { bUser } = apiManagerMocha
 
@@ -12,6 +12,7 @@ interface ILoginPage {
   password?: string
   imgTitle?: string
   LOGIN?: string
+  popUpMessage?: string
 }
 
 enum LoginPageSelectors {
@@ -25,6 +26,7 @@ class LoginPage extends Origin<ILoginPage> {
   private password: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private LOGIN: ChainablePromiseElement<Promise<WebdriverIO.Element>>
    imgTitle: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  popUpMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
 
   constructor() {
     super('Origin')
@@ -34,7 +36,7 @@ class LoginPage extends Origin<ILoginPage> {
     this.password = $('input[data-cy="password"]')
     this.LOGIN = 'button[data-cy="login-button"]'
     this.root = $('#root')
-    this.homePage = new HomePage()
+    this.popUpMessage = $('#root')
   }
 
   async Login(user: string) {

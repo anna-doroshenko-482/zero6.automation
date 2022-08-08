@@ -1,5 +1,6 @@
 import { ChainablePromiseElement } from "node_modules/webdriverio/build/types";
 import {
+  HeaderPageSelectors,
   LoginPageSelectors
 
 } from "page_objects";
@@ -16,6 +17,7 @@ interface IActionButton {
   name:
     | ActionBtns
     | LoginPageSelectors
+    | HeaderPageSelectors
 
   navigateToPage?: boolean
   download?: boolean

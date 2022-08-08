@@ -12,50 +12,56 @@ describe('Tests for Login page', function () {
     await deviceAllPage.transfer(Link.loginPage)
   })
   afterEach(async () => {
-
+    // const { header } = webPages()
+    // await header.logOutAccount()
   })
 
-  it('Test for test', async () => {
-    // const link = 'http://20.0.59.108/login'
-    // await browser.url(link)
-    // const loginPage = new LoginPage()
-    const { loginPage } = webPages()
-    // await deviceAllPage.transfer(Link.loginPage)
-    await browser.pause(2000)
-    // const header = await $('h5')
-    // expect(await header.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
-    const title = await loginPage.imgTitle
-    // const title = await $('#Login-as-Member>image')
-    expect(await title.getAttribute('id'), 'Load page').to.contain(loginData.imgTitle)
+  it('Check for success login to the account with correct data', async () => {
+    const { loginPage, deviceAllPage,header } = webPages()
     await loginPage.Login('admin')
-    await browser.pause(3000)
+    const caption = await deviceAllPage.caption
+    expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
+    expect(await await $(header.logOut), 'Log in successful').exist
+    await header.logOutAccount()
+  })
+
+  it('Check for failure login to the account with incorrect Email', async () => {
+    const { loginPage } = webPages()
+    await loginPage.Login('incorrectEmail')
+    const title = await loginPage.imgTitle
+    const message = await loginPage.popUpMessage
+    expect(await title.getAttribute('id'), 'Load page').to.contain(loginData.imgTitle)
+    expect(await message.getText(), 'Stay the same page').to.contain(loginData.errorLogin)
+  })
+
+  it('Check for failure login to the account with incorrect Password', async () => {
+    const { loginPage } = webPages()
+    await loginPage.Login('incorrectPassword')
+    const title = await loginPage.imgTitle
+    const message = await loginPage.popUpMessage
+    expect(await title.getAttribute('id'), 'Load page').to.contain(loginData.imgTitle)
+    expect(await message.getText(), 'Stay the same page').to.contain(loginData.errorLogin)
+  })
+
+  it('Check functionality of the Forgot password?', async () => {
+    const { loginPage } = webPages()
+    // await loginPage.Login('admin')
+    // const header = await deviceAllPage.header
+    // expect(await header.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
+    // expect(await await $(headerPage.logOut), 'Log in successful').exist
+    // await headerPage.logOutAccount()
+  })
+
+  it('Check functionality of the Register now', async () => {
+    const { loginPage } = webPages()
+    // await loginPage.Login('admin')
+    // const header = await deviceAllPage.header
+    // expect(await header.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
+    // expect(await await $(headerPage.logOut), 'Log in successful').exist
+    // await headerPage.logOutAccount()
   })
 
 
 })
 
 
-//
-// import { expect } from 'chai'
-// import { Link, webPages } from '../../page_objects'
-//
-//
-// describe('Test for test', function () {
-//   beforeEach(async () => {
-//     const link = 'http://20.0.59.108'
-//     await browser.url(link)
-//   })
-//   afterEach(async () => {})
-//
-//   it('Test for test', async () => {
-//     await browser.pause(3000)
-//     // const link = 'http://20.0.59.108/login'
-//     // await browser.url(link)
-//     const { deviceAllPage, loginPage } = webPages()
-//     await deviceAllPage.transfer(Link.loginPage)
-//     // await originPage.transfer(Link.loginPage)
-//     await browser.pause(3000)
-//     loginPage.login('admin')
-//     // expect(await browser.getUrl(), 'Go to the homePage').to.contain(link)
-//   })
-// })

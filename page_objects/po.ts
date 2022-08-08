@@ -1,7 +1,7 @@
 import {
   OriginPage,
   LoginPage,
-  HomePage,
+  Header,
   DeviceAllPage,
 } from './pages'
 
@@ -9,6 +9,6 @@ import {
 export const webPages = () => ({
   originPage: new OriginPage(),
   loginPage: new LoginPage(),
-  homePage: new HomePage(),
+  header: new Header(),
   deviceAllPage: new DeviceAllPage(),
 })
