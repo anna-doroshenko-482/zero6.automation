@@ -22,6 +22,51 @@ describe('Tests for Login page', function () {
     const caption = await deviceAllPage.caption
     expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
     expect(await await $(header.logOut), 'Log in successful').exist
+    // expect(await caption.getText(), 'Log in by Admin').to.contain(loginData.adminRole)
+    await browser.pause(3000)
+    await header.logOutAccount()
+  })
+
+  it('Check for success Agent login to the account with correct data', async () => {
+    const { loginPage, deviceAllPage,header } = webPages()
+    await loginPage.Login('agents')
+    const caption = await deviceAllPage.caption
+    expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
+    expect(await await $(header.logOut), 'Log in successful').exist
+    // expect(await caption.getText(), 'Log in by Agent').to.contain(loginData.agentRole)
+    await browser.pause(3000)
+    await header.logOutAccount()
+  })
+
+  it('Check for success Devicemanager login to the account with correct data', async () => {
+    const { loginPage, deviceAllPage,header } = webPages()
+    await loginPage.Login('devicemanager')
+    const caption = await deviceAllPage.caption
+    expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
+    expect(await await $(header.logOut), 'Log in successful').exist
+    // expect(await caption.getText(), 'Log in by Devicemanager').to.contain(loginData.devicemanagerRole)
+    await browser.pause(3000)
+    await header.logOutAccount()
+  })
+
+  it('Check for success Issuer login to the account with correct data', async () => {
+    const { loginPage, deviceAllPage,header } = webPages()
+    await loginPage.Login('issuer')
+    const caption = await deviceAllPage.caption
+    expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
+    expect(await await $(header.logOut), 'Log in successful').exist
+    // expect(await caption.getText(), 'Log in by Issuer').to.contain(loginData.issuerRole)
+    await browser.pause(3000)
+    await header.logOutAccount()
+  })
+
+  it('Check for success Trader login to the account with correct data', async () => {
+    const { loginPage, deviceAllPage,header } = webPages()
+    await loginPage.Login('trader')
+    const caption = await deviceAllPage.caption
+    expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
+    expect(await await $(header.logOut), 'Log in successful').exist
+    // expect(await caption.getText(), 'Log in by Trader').to.contain(loginData.traderRole)
     await browser.pause(3000)
     await header.logOutAccount()
   })
