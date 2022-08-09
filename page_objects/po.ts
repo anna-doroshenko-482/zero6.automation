@@ -3,6 +3,7 @@ import {
   LoginPage,
   Header,
   DeviceAllPage,
+  RegisterPage,
 } from './pages'
 
 
@@ -11,4 +12,5 @@ export const webPages = () => ({
   loginPage: new LoginPage(),
   header: new Header(),
   deviceAllPage: new DeviceAllPage(),
+  registerPage: new RegisterPage(),
 })

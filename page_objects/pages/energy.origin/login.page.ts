@@ -13,10 +13,16 @@ interface ILoginPage {
   imgTitle?: string
   LOGIN?: string
   popUpMessage?: string
+  forgotButton?: string
+  registerButton?: string
+  registerText?: string
+  forgotForm?: string
 }
 
 enum LoginPageSelectors {
   LOGIN = 'LOGIN',
+  forgotButton = 'forgotButton',
+  registerButton = 'registerButton',
 
 }
 
@@ -24,9 +30,13 @@ class LoginPage extends Origin<ILoginPage> {
   private actionButton: ActionButton
   private username: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private password: ChainablePromiseElement<Promise<WebdriverIO.Element>>
-  private LOGIN: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  private LOGIN: string
+  private forgotButton: string
+  private registerButton: string
    imgTitle: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   popUpMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  registerText: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  forgotForm: ChainablePromiseElement<Promise<WebdriverIO.Element>>
 
   constructor() {
     super('Origin')
@@ -37,6 +47,10 @@ class LoginPage extends Origin<ILoginPage> {
     this.LOGIN = 'button[data-cy="login-button"]'
     this.root = $('#root')
     this.popUpMessage = $('#root')
+    this.forgotButton = 'button'
+    this.forgotForm = $('form h6')
+    this.registerText = $('.MuiBox-root>p')
+    this.registerButton = 'button[data-cy="register-now-button"]'
   }
 
   async Login(user: string) {
@@ -61,21 +75,7 @@ class LoginPage extends Origin<ILoginPage> {
     // this.cookie = signInCookies[0]
   }
 
-  // async apiLogin(){
-  //   const token = await bUser.getToken()
-  //   return token
-  // }
 
-  // async verifyCookieWorkflow(): Promise<void> {
-  //   const link = `https://${this.appLink}`
-  //   await browser.deleteCookies()
-  //   await browser.url(link)
-  //   await this.homePage.transfer(Link.ordersType)
-  //   await this.userField.waitForDisplayed()
-  //   await browser.setCookies([{ name: this.cookie.name, value: this.cookie.value }])
-  //   await this.homePage.transfer(Link.ordersType)
-  //   await this.userField.waitForExist({ reverse: true })
-  // }
 }
 
 decorateService(LoginPage)
