@@ -1,0 +1,39 @@
+
+import { expect } from 'chai'
+
+import { registerData, loginData } from 'testData'
+import { Link, webPages, LoginPage, LoginPageSelectors, RegisterPageSelectors } from "../../page_objects";
+
+describe('Tests for Register page', function () {
+  beforeEach(async () => {
+    const link = 'http://20.0.59.108'
+    await browser.url(link)
+    const { deviceAllPage } = webPages()
+    await deviceAllPage.transfer(Link.registerPage)
+  })
+  afterEach(async () => {
+    // const { header } = webPages()
+    // await header.logOutAccount()
+  })
+
+  it('Check for success create the new account with correct data for role Admin', async () => {
+    const { registerPage } = webPages()
+    await registerPage.typeIn({
+      firstName: registerData.firstNameAdmin,
+      lastName: registerData.lastNameAdmin,
+      email: registerData.emailAdmin,
+      telephone: registerData.telephoneAdmin,
+      password: registerData.passwordAdmin,
+    })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.registerButton } })
+    expect(await (await registerPage.thanksRegisterMessage).getText(), 'Register is done').to.contain(registerData.thanksRegisterMessage)
+    expect(await $(registerPage.okRegisterModalButton), 'Confirmation modal button is visible').exist
+    await browser.pause(3000)
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.okRegisterModalButton } })
+  })
+
+
+
+})
+
+
