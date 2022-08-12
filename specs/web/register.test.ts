@@ -32,6 +32,46 @@ describe('Tests for Register page', function () {
     await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.okRegisterModalButton } })
   })
 
+  it('Check for failure register to the account with incorrect First / Last name', async () => {
+    const { registerPage } = webPages()
+    await registerPage.typeIn({
+      firstName: registerData.incorrectFirstName,
+      lastName: registerData.incorrectLastName,
+    })
+    const message = await registerPage.popUpMessage
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    await browser.pause(3000)
+  })
+
+  it('Check for failure register to the account with incorrect Email', async () => {
+    const { registerPage } = webPages()
+    await registerPage.typeIn({
+      email: registerData.incorrectEmail,
+    })
+    const message = await registerPage.popUpMessage
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    await browser.pause(3000)
+  })
+
+  it('Check for failure register to the account with incorrect Telephone', async () => {
+    const { registerPage } = webPages()
+    await registerPage.typeIn({
+      telephone: registerData.incorrectTelephone,
+    })
+    const message = await registerPage.popUpMessage
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    await browser.pause(3000)
+  })
+
+  it('Check for failure register to the account with incorrect Password', async () => {
+    const { registerPage } = webPages()
+    await registerPage.typeIn({
+      password: registerData.incorrectPassword,
+    })
+    const message = await registerPage.popUpMessage
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    await browser.pause(3000)
+  })
 
 
 })

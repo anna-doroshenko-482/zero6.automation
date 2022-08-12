@@ -14,6 +14,7 @@ interface IRegisterPage {
   telephone?: string
   password?: string
   thanksRegisterMessage?: string
+  popUpMessage?: string
 }
 
 enum RegisterPageSelectors {
@@ -32,6 +33,7 @@ class RegisterPage extends Origin<IRegisterPage> {
   private telephone: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private password: ChainablePromiseElement<Promise<WebdriverIO.Element>>
    thanksRegisterMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  popUpMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
 
   constructor() {
     super('Origin')
@@ -46,6 +48,7 @@ class RegisterPage extends Origin<IRegisterPage> {
     this.registerButton = 'button[data-cy="register-button"]'
     this.thanksRegisterMessage = $('h2#mui-6')
     this.okRegisterModalButton = 'button[data-cy="user-registered-modal-ok"]'
+    this.popUpMessage = $('#root')
   }
 
 
