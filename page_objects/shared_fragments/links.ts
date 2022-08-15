@@ -1,5 +1,5 @@
 enum Link {
-  originPage = '/device/all',
+  allDevicesPage = '/device/all',
   loginPage = '/login',
   registerPage = '/auth/register',
 }

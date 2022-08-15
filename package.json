@@ -11,7 +11,7 @@
     "selenoid:path:specific": "sleep 1 && wdio config/runners/selenoid.conf.ts --files --spec ",
     "selenoid:name:specific": "sleep 1 && wdio config/runners/selenoid.conf.ts --mochaOpts.grep ",
     "selenoid:run": "sleep 1 && wdio config/runners/selenoid.conf.ts --files --spec ./specs/web/start.test.ts",
-    "test:local:chrome:specific": "wdio config/runners/chrome.conf.ts --files --spec ./specs/web/login.test.ts",
+    "test:local:chrome:specific": "wdio config/runners/chrome.conf.ts --files --spec specs/web/origin/login/login.test.ts",
     "test:local:chrome:testSuite": "wdio config/runners/chrome.conf.ts --suite testSpecs",
     "test:local:chrome": "wdio config/runners/chrome.conf.ts --files --spec ./specs/web/start.test.ts",
     "test:local:chrome:tags": "wdio config/runners/chrome.conf.ts --mochaOpts.grep smoke",

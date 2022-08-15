@@ -1,8 +1,9 @@
 
 import { expect } from 'chai'
 
+import { config } from "config";
 import { deviceAllData, loginData } from 'testData'
-import { Link, webPages, LoginPage, LoginPageSelectors, RegisterPageSelectors } from "../../page_objects";
+import { Link, webPages, LoginPage, LoginPageSelectors, RegisterPageSelectors } from "../../../../page_objects";
 
 describe('Tests for Login page', function () {
   beforeEach(async () => {
@@ -18,7 +19,10 @@ describe('Tests for Login page', function () {
 
   it('Check for success Admin login to the account with correct data', async () => {
     const { loginPage, deviceAllPage,header } = webPages()
-    await loginPage.Login('admin')
+    // await loginPage.Login('admin')
+    await loginPage.typeIn({ username: loginPage.permission['admin'].login, password: loginPage.permission['admin'].password })
+    await browser.pause(300)
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
     const caption = await deviceAllPage.caption
     expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
     expect(await await $(header.logOut), 'Log in successful').exist
@@ -29,7 +33,10 @@ describe('Tests for Login page', function () {
 
   it('Check for success Agent login to the account with correct data', async () => {
     const { loginPage, deviceAllPage,header } = webPages()
-    await loginPage.Login('agents')
+    // await loginPage.Login('agents')
+    await loginPage.typeIn({ username: loginPage.permission['agents'].login, password: loginPage.permission['agents'].password })
+    await browser.pause(300)
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
     const caption = await deviceAllPage.caption
     expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
     expect(await await $(header.logOut), 'Log in successful').exist
@@ -40,7 +47,10 @@ describe('Tests for Login page', function () {
 
   it('Check for success Devicemanager login to the account with correct data', async () => {
     const { loginPage, deviceAllPage,header } = webPages()
-    await loginPage.Login('devicemanager')
+    // await loginPage.Login('devicemanager')
+    await loginPage.typeIn({ username: loginPage.permission['devicemanager'].login, password: loginPage.permission['devicemanager'].password })
+    await browser.pause(300)
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
     const caption = await deviceAllPage.caption
     expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
     expect(await await $(header.logOut), 'Log in successful').exist
@@ -51,7 +61,10 @@ describe('Tests for Login page', function () {
 
   it('Check for success Issuer login to the account with correct data', async () => {
     const { loginPage, deviceAllPage,header } = webPages()
-    await loginPage.Login('issuer')
+    // await loginPage.Login('issuer')
+    await loginPage.typeIn({ username: loginPage.permission['issuer'].login, password: loginPage.permission['issuer'].password })
+    await browser.pause(300)
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
     const caption = await deviceAllPage.caption
     expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
     expect(await await $(header.logOut), 'Log in successful').exist
@@ -62,7 +75,10 @@ describe('Tests for Login page', function () {
 
   it('Check for success Trader login to the account with correct data', async () => {
     const { loginPage, deviceAllPage,header } = webPages()
-    await loginPage.Login('trader')
+    // await loginPage.Login('trader')
+    await loginPage.typeIn({ username: loginPage.permission['trader'].login, password: loginPage.permission['trader'].password })
+    await browser.pause(300)
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
     const caption = await deviceAllPage.caption
     expect(await caption.getText(), 'Go to the homePage').to.contain(deviceAllData.header)
     expect(await await $(header.logOut), 'Log in successful').exist
@@ -73,7 +89,10 @@ describe('Tests for Login page', function () {
 
   it('Check for failure login to the account with incorrect Email', async () => {
     const { loginPage } = webPages()
-    await loginPage.Login('incorrectEmail')
+    // await loginPage.Login('incorrectEmail')
+    await loginPage.typeIn({ username: loginPage.permission['incorrectEmail'].login, password: loginPage.permission['incorrectEmail'].password })
+    await browser.pause(300)
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
     const title = await loginPage.imgTitle
     const message = await loginPage.popUpMessage
     expect(await title.getAttribute('id'), 'Load page').to.contain(loginData.imgTitle)
@@ -83,7 +102,10 @@ describe('Tests for Login page', function () {
 
   it('Check for failure login to the account with incorrect Password', async () => {
     const { loginPage } = webPages()
-    await loginPage.Login('incorrectPassword')
+    // await loginPage.Login('incorrectPassword')
+    await loginPage.typeIn({ username: loginPage.permission['incorrectPassword'].login, password: loginPage.permission['incorrectPassword'].password })
+    await browser.pause(300)
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.LOGIN } })
     const title = await loginPage.imgTitle
     const message = await loginPage.popUpMessage
     expect(await title.getAttribute('id'), 'Load page').to.contain(loginData.imgTitle)
@@ -102,7 +124,7 @@ describe('Tests for Login page', function () {
   it('Check functionality of the Register now', async () => {
     const { loginPage, registerPage } = webPages()
     await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.registerButton} })
-    const registerButton = await $(RegisterPageSelectors.Register)
+    const registerButton = await $(RegisterPageSelectors.registerButton)
     expect(await browser.getUrl(), 'Go to the registerPage').to.contain(Link.registerPage)
     expect(await registerButton, 'registerPage is load').exist
     await browser.pause(3000)

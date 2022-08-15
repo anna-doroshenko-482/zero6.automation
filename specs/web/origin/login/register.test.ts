@@ -2,7 +2,7 @@
 import { expect } from 'chai'
 
 import { registerData, loginData } from 'testData'
-import { Link, webPages, LoginPage, LoginPageSelectors, RegisterPageSelectors } from "../../page_objects";
+import { Link, webPages, LoginPage, LoginPageSelectors, RegisterPageSelectors } from "../../../../page_objects";
 
 describe('Tests for Register page', function () {
   beforeEach(async () => {

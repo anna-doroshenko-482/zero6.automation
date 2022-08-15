@@ -28,6 +28,7 @@ enum LoginPageSelectors {
 
 class LoginPage extends Origin<ILoginPage> {
   private actionButton: ActionButton
+
   private username: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private password: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private LOGIN: string
