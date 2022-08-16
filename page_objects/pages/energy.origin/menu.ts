@@ -20,6 +20,8 @@ interface IMenu {
   tabMenu?: TabNames
   dataPicker?: IDataPicker | IDataPicker[]
   logo?: string
+  header5?: string
+  header6?: string
   logOut?: string
   devices?: string
   allDevices?: string
@@ -28,13 +30,18 @@ interface IMenu {
   myOrganization?: string
   registerIREC?: string
   account?: string
-  settings?: string
+  accountSettings?: string
   userProfile?: string
   admin?: string
   adminUsers?: string
   adminOrganizations?: string
   adminClaims?: string
   adminTrades?: string
+
+  exchange?: string
+  exchangeViewMarket?: string
+  exchangeAllBundles?: string
+  settings?: string
 
 }
 
@@ -47,13 +54,18 @@ enum MenuSelectors {
   myOrganization = 'myOrganization',
   registerIREC = 'registerIREC',
   account = 'account',
-  settings = 'settings',
+  accountSettings = 'accountSettings',
   userProfile = 'userProfile',
   admin = 'admin',
   adminUsers = 'adminUsers',
   adminOrganizations = 'adminOrganizations',
   adminClaims = 'adminClaims',
   adminTrades = 'adminTrades',
+
+  exchange = 'exchange',
+  exchangeViewMarket = 'exchangeViewMarket',
+  exchangeAllBundles = 'exchangeAllBundles',
+  settings = 'settings',
 }
 
 class Menu extends Origin<IMenu> {
@@ -62,6 +74,8 @@ class Menu extends Origin<IMenu> {
   private checkbox: Checkbox
   private dataPicker: DataPicker
   private logo: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  header5: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  header6: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   logOut: string
   private devices: string
   private allDevices: string
@@ -70,7 +84,7 @@ class Menu extends Origin<IMenu> {
   private myOrganization: string
   private registerIREC: string
   private account: string
-  private settings: string
+  private accountSettings: string
   private userProfile: string
   private admin: string
   private adminUsers: string
@@ -78,33 +92,46 @@ class Menu extends Origin<IMenu> {
   private adminClaims: string
   private adminTrades: string
 
+  private exchange: string
+  private exchangeViewMarket: string
+  private exchangeAllBundles: string
+  private settings: string
+
+
   constructor() {
     super('Origin')
     this.checkbox = new Checkbox(this.root)
     this.actionButton = new ActionButton(this.root)
     this.dataPicker = new DataPicker(this.root)
     this.logOut = 'button[data-cy="navigation-logout-button"]'
+    this.header5 = $('h5')
+    this.header6 = $('h6')
     this.devices = 'a*=Devices'
-    this.allDevices = 'a*=Devices'
-    this.mapView = 'a*=Devices'
-    this.organization = 'a*=Devices'
-    this.myOrganization = 'a*=Devices'
-    this.registerIREC = 'a*=Devices'
-    this.account = 'a*=Devices'
-    this.settings = 'a*=Devices'
-    this.userProfile = 'a*=Devices'
-    this.admin = 'a*=Devices'
-    this.adminUsers = 'a*=Devices'
-    this.adminOrganizations = 'a*=Devices'
-    this.adminClaims = 'a*=Devices'
-    this.adminTrades = 'a*=Devices'
+    this.allDevices = 'a[data-cy="allDevices"]'
+    this.mapView = 'a[data-cy="devicesMap"]'
+    this.organization = 'a*=Organization'
+    this.myOrganization = 'a[data-cy="myOrganization"]'
+    this.registerIREC = 'a[data-cy="organizationRegisterIRec"]'
+    this.account = 'a*=Account'
+    this.accountSettings = 'a[data-cy="accountSettings"]'
+    this.userProfile = 'a[data-cy="accountUserProfile"]'
+    this.admin = 'a*=Admin'
+    this.adminUsers = 'a[data-cy="adminUsers"]'
+    this.adminOrganizations = 'a[data-cy="adminOrganizations"]'
+    this.adminClaims = 'a[data-cy="adminClaims"]'
+    this.adminTrades = 'a[data-cy="adminTrades"]'
+
+    this.exchange = 'a*=Exchange'
+    this.exchangeViewMarket = 'a[data-cy="exchangeViewMarket"]'
+    this.exchangeAllBundles = 'a[data-cy="exchangeAllBundles"]'
+    this.settings = 'ul.MuiList-root>div:nth-child(5) li>a'
   }
 
-  async menuOpen(){
-    if(){
-
-    }
-  }
+  // async menuOpen(){
+  //   if(){
+  //
+  //   }
+  // }
 
 
 }
