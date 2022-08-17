@@ -1,7 +1,7 @@
 import { mobilePhoneGeneration, randomInteger, stringGenerator } from '../../helpers'
 
 
-export const menuData = {
+export const menuOriginData = {
   deviceAll: 'There are no devices in the system',
   mapView: '',
   organization: 'Organization Information',

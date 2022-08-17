@@ -68,7 +68,7 @@ enum MenuSelectors {
   settings = 'settings',
 }
 
-class Menu extends Origin<IMenu> {
+class MenuOrigin extends Origin<IMenu> {
   private actionButton: ActionButton
   private dropdown: Dropdown
   private checkbox: Checkbox
@@ -136,6 +136,6 @@ class Menu extends Origin<IMenu> {
 
 }
 
-decorateService(Menu)
+decorateService(MenuOrigin)
 
-export { Menu, MenuSelectors }
+export { MenuOrigin, MenuSelectors }

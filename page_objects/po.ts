@@ -4,7 +4,7 @@ import {
   Header,
   DeviceAllPage,
   RegisterPage,
-  Menu,
+  MenuOrigin,
 } from './pages'
 
 
@@ -14,5 +14,5 @@ export const webPages = () => ({
   header: new Header(),
   deviceAllPage: new DeviceAllPage(),
   registerPage: new RegisterPage(),
-  menu: new Menu(),
+  menu: new MenuOrigin(),
 })

@@ -1,10 +1,10 @@
 
 import { expect } from 'chai'
 
-import { menuData } from "testData";
+import { menuOriginData } from "testData";
 import { Link, webPages, MenuSelectors } from '../../../page_objects'
 
-describe('Testing functionality Menu for login user', function () {
+describe('Testing functionality MenuOrigin for login user', function () {
   beforeEach(async () => {
     const link = 'http://20.0.59.108'
     await browser.url(link)
@@ -22,7 +22,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.devices } })
     expect(await browser.getUrl()).to.contain(Link.allDevicesPage)
     const header = await menu.header5
-    expect(await header.getText(), 'Going to the Page').to.contain(menuData.deviceAll)
+    expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.deviceAll)
   })
 
   it('Check for success going to the Map View page', async () => {
@@ -30,7 +30,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.mapView } })
     expect(await browser.getUrl()).to.contain(Link.mapViewPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.mapView)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.mapView)
   })
 
   it('Check for success going to the Organization page', async () => {
@@ -38,7 +38,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.organization } })
     expect(await browser.getUrl()).to.contain(Link.organizationPage)
     const header = await menu.header6
-    expect(await header.getText(), 'Going to the Page').to.contain(menuData.organization)
+    expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.organization)
   })
 
   // Double
@@ -47,7 +47,7 @@ describe('Testing functionality Menu for login user', function () {
   //   await menu.clickOn({ actionButton: { name: MenuSelectors.myOrganization } })
   //   expect(await browser.getUrl()).to.contain(Link.myOrganizationPage)
   //   const header = await menu.header6
-  //   expect(await header.getText(), 'Going to the Page').to.contain(menuData.myOrganization)
+  //   expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.myOrganization)
   // })
 
   it('Check for success going to the Register IREC page', async () => {
@@ -55,7 +55,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.registerIREC } })
     expect(await browser.getUrl()).to.contain(Link.registerIRECPage)
     const header = await menu.header5
-    expect(await header.getText(), 'Going to the Page').to.contain(menuData.registerIREC)
+    expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.registerIREC)
   })
 
   it('Check for success going to the Account page', async () => {
@@ -63,7 +63,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.account } })
     expect(await browser.getUrl()).to.contain(Link.accountPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.account)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.account)
   })
 
   // Double
@@ -72,7 +72,7 @@ describe('Testing functionality Menu for login user', function () {
   //   await menu.clickOn({ actionButton: { name: MenuSelectors.accountSettings } })
   //   expect(await browser.getUrl()).to.contain(Link.settingsPage)
   //   // const header = await menu.header5
-  //   // expect(await header.getText(), 'Going to the Page').to.contain(menuData.accountSettings)
+  //   // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.accountSettings)
   // })
 
   it('Check for success going to the User ProfilePage page', async () => {
@@ -80,7 +80,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.userProfile } })
     expect(await browser.getUrl()).to.contain(Link.userProfilePage)
     const header = await menu.header5
-    expect(await header.getText(), 'Going to the Page').to.contain(menuData.userProfile)
+    expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.userProfile)
   })
 
   it('Check for success going to the Admin page', async () => {
@@ -88,7 +88,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.admin } })
     expect(await browser.getUrl()).to.contain(Link.adminPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.admin)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.admin)
   })
 
   // Double
@@ -97,7 +97,7 @@ describe('Testing functionality Menu for login user', function () {
   //   await menu.clickOn({ actionButton: { name: MenuSelectors.adminUsers } })
   //   expect(await browser.getUrl()).to.contain(Link.adminUsersPage)
   //   // const header = await menu.header5
-  //   // expect(await header.getText(), 'Going to the Page').to.contain(menuData.adminUsers)
+  //   // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.adminUsers)
   // })
 
   it('Check for success going to the Admin Organizations page', async () => {
@@ -105,7 +105,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.adminOrganizations } })
     expect(await browser.getUrl()).to.contain(Link.adminOrganizationsPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.adminOrganizations)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.adminOrganizations)
   })
 
   it('Check for success going to the Admin Claims page', async () => {
@@ -113,7 +113,7 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.adminClaims } })
     expect(await browser.getUrl()).to.contain(Link.adminClaimsPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.adminClaims)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.adminClaims)
   })
 
   it('Check for success going to the Admin Trades page', async () => {
@@ -121,12 +121,12 @@ describe('Testing functionality Menu for login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.adminTrades } })
     expect(await browser.getUrl()).to.contain(Link.adminTradesPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.adminTrades)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.adminTrades)
   })
 
 })
 
-describe('Testing functionality Menu for not login user', function () {
+describe('Testing functionality MenuOrigin for not login user', function () {
   beforeEach(async () => {
     const link = 'http://20.0.59.108'
     await browser.url(link)
@@ -140,7 +140,7 @@ describe('Testing functionality Menu for not login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.devices } })
     expect(await browser.getUrl()).to.contain(Link.allDevicesPage)
     const header = await menu.header5
-    expect(await header.getText(), 'Going to the Page').to.contain(menuData.deviceAll)
+    expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.deviceAll)
   })
 
   it('Check for success going to the Map View page', async () => {
@@ -148,7 +148,7 @@ describe('Testing functionality Menu for not login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.mapView } })
     expect(await browser.getUrl()).to.contain(Link.mapViewPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.mapView)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.mapView)
   })
 
   it('Check for success going to the Exchange page', async () => {
@@ -156,7 +156,7 @@ describe('Testing functionality Menu for not login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.exchange } })
     expect(await browser.getUrl()).to.contain(Link.exchangePage)
     const header = await menu.header5
-    expect(await header.getText(), 'Going to the Page').to.contain(menuData.exchange)
+    expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.exchange)
   })
 
   // Double
@@ -165,7 +165,7 @@ describe('Testing functionality Menu for not login user', function () {
   //   await menu.clickOn({ actionButton: { name: MenuSelectors.exchangeViewMarket } })
   //   expect(await browser.getUrl()).to.contain(Link.exchangeViewMarketPage)
   //   const header = await menu.header6
-  //   expect(await header.getText(), 'Going to the Page').to.contain(menuData.exchangeViewMarket)
+  //   expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.exchangeViewMarket)
   // })
 
   it('Check for success going to the Exchange All Bundles page', async () => {
@@ -173,7 +173,7 @@ describe('Testing functionality Menu for not login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.exchangeAllBundles } })
     expect(await browser.getUrl()).to.contain(Link.exchangeAllBundlesPage)
     const header = await menu.header5
-    expect(await header.getText(), 'Going to the Page').to.contain(menuData.exchangeAllBundles)
+    expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.exchangeAllBundles)
   })
 
   it('Check for success going to the Settings page', async () => {
@@ -181,7 +181,7 @@ describe('Testing functionality Menu for not login user', function () {
     await menu.clickOn({ actionButton: { name: MenuSelectors.settings } })
     expect(await browser.getUrl()).to.contain(Link.settingsPage)
     // const header = await menu.header5
-    // expect(await header.getText(), 'Going to the Page').to.contain(menuData.settings)
+    // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.settings)
   })
 
   // Double
@@ -190,7 +190,7 @@ describe('Testing functionality Menu for not login user', function () {
   //   await menu.clickOn({ actionButton: { name: MenuSelectors.settings } })
   //   expect(await browser.getUrl()).to.contain(Link.settingsPage)
   //   // const header = await menu.header5
-  //   // expect(await header.getText(), 'Going to the Page').to.contain(menuData.settings)
+  //   // expect(await header.getText(), 'Going to the Page').to.contain(menuOriginData.settings)
   // })
 
 
