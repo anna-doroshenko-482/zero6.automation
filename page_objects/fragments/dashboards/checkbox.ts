@@ -10,23 +10,7 @@ interface ICheckbox {
 }
 
 enum Checkboxes {
-  withoutNavigation = 'noP',
-  newsShowOnSite = 'ShowOnSite',
-  notUsePeriod = 'notUsePeriod',
-  withPassport = 'ispsp',
-  withInn = 'isinn',
-  withSms = 'smsAcc',
-  anyCardNumber = 'cce',
-  notCardNumber = 'cca',
-  office = 'office',
-  controlled = 'controlled',
-  photo = 'photo',
-  relay = 'relay',
-  addMoneyIgn = 'Ign',
-  addMoneyInvoiceID = 'InvoiceID',
-  doNotify = 'doNotify',
-  addEquipOrder = 'addEquipOrder',
-  copy2ios = 'copy2ios',
+  agreeTermConditions = '',
 }
 
 class Checkbox {

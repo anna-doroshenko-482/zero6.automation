@@ -2,7 +2,7 @@
 import { expect } from 'chai'
 
 import { registerData, loginData } from 'testData'
-import { Link, webPages, LoginPage, LoginPageSelectors, RegisterPageSelectors } from "../../../../page_objects";
+import { Link, webPages, Checkboxes, LoginPageSelectors, RegisterPageSelectors } from "../../../page_objects";
 
 describe('Tests for Register page', function () {
   beforeEach(async () => {
@@ -24,8 +24,10 @@ describe('Tests for Register page', function () {
       email: registerData.emailAdmin,
       telephone: registerData.telephoneAdmin,
       password: registerData.passwordAdmin,
+      passwordConfirm: registerData.passwordAdmin,
     })
-    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.registerButton } })
+    await registerPage.clickOn({ checkbox: { name: Checkboxes.agreeTermConditions } })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.agreeTermConditions } })
     expect(await (await registerPage.thanksRegisterMessage).getText(), 'Register is done').to.contain(registerData.thanksRegisterMessage)
     expect(await $(registerPage.okRegisterModalButton), 'Confirmation modal button is visible').exist
     await browser.pause(3000)
