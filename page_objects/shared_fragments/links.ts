@@ -1,6 +1,7 @@
 enum Link {
 
   loginPage = '/login',
+  forgotPasswordPage = '/login/request-password-reset',
   registerPage = '/auth/register',
   allDevicesPage = '/device/all',
   mapViewPage = '/device/map',

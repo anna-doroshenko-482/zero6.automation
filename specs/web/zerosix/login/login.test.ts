@@ -115,7 +115,7 @@ describe('Tests for Login page', function () {
 
   it('Check functionality of the Forgot password?', async () => {
     const { loginPage } = webPages()
-    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.forgotButton } })
+    await loginPage.clickOn({ actionButton: { name: LoginPageSelectors.forgotPassword } })
     const forgotForm = await loginPage.forgotForm
     expect(await forgotForm.getText(), 'Go to the Forgot password form').to.contain(loginData.forgotForm)
     await browser.pause(3000)
