@@ -9,7 +9,7 @@ export const webUiApi = {
     },
   },
   dev02: {
-    host: 'http://20.0.59.108/',
+    host: 'http://20.222.119.219/',
     users: {
       admin: {
         login: 'admin@mailinator.com',

@@ -1,6 +1,6 @@
 const zero6 = {
   dev02: {
-    appLink: 'http://20.0.59.108/',
+    appLink: 'http://20.222.119.219/',
     users: {
       admin: {
         login: 'admin@mailinator.com',

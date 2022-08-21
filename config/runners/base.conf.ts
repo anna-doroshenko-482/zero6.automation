@@ -15,7 +15,7 @@ global.downloadDir = {
 
 module.exports = {
   specs: ['./specs/web/**/*.test.ts'],
-  baseUrl: 'http://20.0.59.108/',
+  baseUrl: 'http://20.222.119.219/',
   services: ['selenium-standalone', 'shared-store', 'devtools', 'intercept', 'firefox-profile'],
   suites: {
     testSpecs: [

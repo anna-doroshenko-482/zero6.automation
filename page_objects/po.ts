@@ -5,6 +5,7 @@ import {
   DeviceAllPage,
   RegisterPage,
   MenuOrigin,
+  ForgotPasswordPage,
 } from './pages'
 
 
@@ -15,4 +16,5 @@ export const webPages = () => ({
   deviceAllPage: new DeviceAllPage(),
   registerPage: new RegisterPage(),
   menu: new MenuOrigin(),
+  forgotPasswordPage: new ForgotPasswordPage(),
 })
