@@ -17,6 +17,7 @@ interface ILoginPage {
   registerButton?: string
   registerText?: string
   forgotForm?: string
+  popUpSuccessForgotPassword?: string
 }
 
 enum LoginPageSelectors {
@@ -38,6 +39,7 @@ class LoginPage extends Origin<ILoginPage> {
   popUpMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   registerText: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   forgotForm: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  popUpSuccessForgotPassword: ChainablePromiseElement<Promise<WebdriverIO.Element>>
 
   constructor() {
     super('Origin')
@@ -48,6 +50,7 @@ class LoginPage extends Origin<ILoginPage> {
     this.LOGIN = 'button[data-cy="login-button"]'
     this.root = $('#root')
     this.popUpMessage = $('#root')
+    this.popUpSuccessForgotPassword = $('#nv4zg2ppk>div>div>div>div')
     this.forgotPassword = 'button'
     this.forgotForm = $('form h6')
     this.registerText = $('.MuiBox-root>p')
