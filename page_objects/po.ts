@@ -6,6 +6,7 @@ import {
   RegisterPage,
   MenuOrigin,
   ForgotPasswordPage,
+  UserProfilePage,
 } from './pages'
 
 
@@ -17,4 +18,5 @@ export const webPages = () => ({
   registerPage: new RegisterPage(),
   menu: new MenuOrigin(),
   forgotPasswordPage: new ForgotPasswordPage(),
+  userProfilePage: new UserProfilePage(),
 })
