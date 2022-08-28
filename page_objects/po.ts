@@ -7,6 +7,7 @@ import {
   MenuOrigin,
   ForgotPasswordPage,
   UserProfilePage,
+  CreateBankAccountPage,
 } from './pages'
 
 
@@ -19,4 +20,5 @@ export const webPages = () => ({
   menu: new MenuOrigin(),
   forgotPasswordPage: new ForgotPasswordPage(),
   userProfilePage: new UserProfilePage(),
+  createBankAccountPage: new CreateBankAccountPage(),
 })

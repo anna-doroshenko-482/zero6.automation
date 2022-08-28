@@ -2,5 +2,5 @@ import { mobilePhoneGeneration, randomInteger, stringGenerator } from '../../hel
 
 
 export const userProfileData = {
-  blockName: 'Bank Accounts',
+  blockName: 'New Bank Account',
 }

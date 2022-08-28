@@ -16,6 +16,7 @@ enum Link {
   adminOrganizationsPage = '/admin/organizations',
   adminClaimsPage = '/admin/claims',
   adminTradesPage = '/admin/trades',
+  createBankAccountPage = '/account/create-bank-account',
 
   exchangePage = '/exchange/view-market',
   exchangeViewMarketPage = '/exchange/view-market',
