@@ -18,12 +18,12 @@ describe('Tests for Register page', function () {
 
   it.only('Check possibility to Login from Register page', async () => {
     const { registerPage } = webPages()
-    expect(await (await registerPage.haveLoginText).getText(), 'Possibility yo Login').to.contain(registerData.errorRegister)
+    expect(await (await registerPage.haveLoginText).getText(), 'Possibility to Login').to.contain(registerData.haveLoginText)
     expect(await (await $(registerPage.loginButton))).to.be.exist
     await browser.pause(3000)
   })
 
-  it.only('Check possibility going to Login page', async () => {
+  it('Check possibility going to Login page', async () => {
     const { registerPage } = webPages()
     await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.loginButton } })
     expect(await browser.getUrl()).to.contain(Link.loginPage)
