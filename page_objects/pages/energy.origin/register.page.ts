@@ -7,7 +7,7 @@ import { ChainablePromiseElement } from 'node_modules/webdriverio/build/types'
 interface IRegisterPage {
   actionButton?: IActionButton | IActionButton[]
   checkbox?: ICheckbox | ICheckbox[]
-  registerButton?: string
+  continueButton?: string
   okRegisterModalButton?: string
   firstName?: string
   lastName?: string
@@ -18,19 +18,23 @@ interface IRegisterPage {
   thanksRegisterMessage?: string
   popUpMessage?: string
   agreeTermConditions?: string
+  loginButton?: string
+  haveLoginText?: string
 }
 
 enum RegisterPageSelectors {
-  registerButton = 'registerButton',
+  continueButton = 'continueButton',
   okRegisterModalButton = 'okRegisterModalButton',
   agreeTermConditions = 'agreeTermConditions',
+  loginButton = 'loginButton',
 
 }
 
 class RegisterPage extends Origin<IRegisterPage> {
   private actionButton: ActionButton
   private checkbox: Checkbox
-  private registerButton: string
+  private continueButton: string
+   loginButton: string
   private agreeTermConditions: string
    okRegisterModalButton: string
   private firstName: ChainablePromiseElement<Promise<WebdriverIO.Element>>
@@ -41,9 +45,10 @@ class RegisterPage extends Origin<IRegisterPage> {
   private passwordConfirm: ChainablePromiseElement<Promise<WebdriverIO.Element>>
    thanksRegisterMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   popUpMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
+  haveLoginText: ChainablePromiseElement<Promise<WebdriverIO.Element>>
 
   constructor() {
-    super('Origin')
+    super('Zero6')
     this.actionButton = new ActionButton(this.root)
     this.checkbox = new Checkbox(this.root)
     this.registerButton = 'button[data-cy="register-button"]'
@@ -55,10 +60,12 @@ class RegisterPage extends Origin<IRegisterPage> {
     this.password = $('input[data-cy="password"]')
     this.passwordConfirm = $('input[data-cy="password"]')
     this.agreeTermConditions = ''
-    this.registerButton = 'button[data-cy="register-button"]'
+    this.continueButton = 'button[data-cy="register-button"]'
     this.thanksRegisterMessage = $('h2#mui-6')
     this.okRegisterModalButton = 'button[data-cy="user-registered-modal-ok"]'
     this.popUpMessage = $('#root')
+    this.haveLoginText = $('p.MuiTypography-root')
+    this.loginButton = 'button[data-cy="register-now-button"]'
   }
 
 

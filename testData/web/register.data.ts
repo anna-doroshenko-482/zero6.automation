@@ -9,6 +9,7 @@ export const registerData = {
   passwordAdmin: 'EW-Origin-WhiteText',
 
   thanksRegisterMessage: 'Thanks for registering as a user on the marketplace',
+  haveLoginText: 'Already have an account?',
   errorRegister: 'Could not register with supplied credentials',
   incorrectFirstName: 'fN%&^&',
   incorrectLastName: 'lN^**&(*',
