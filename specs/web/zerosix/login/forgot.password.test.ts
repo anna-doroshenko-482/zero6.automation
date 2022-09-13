@@ -18,6 +18,14 @@ describe('Tests for resetting password functionality', function () {
     expect(await (await forgotPasswordPage.instruction).getText()).to.contain(forgotPasswordData.instructionText)
     expect(await (await forgotPasswordPage.emailInput)).to.be.exist
     expect(await (await $(forgotPasswordPage.resetPasswordButton))).to.be.exist
+    expect(await (await $(forgotPasswordPage.returnLoginButton))).to.be.exist
+    await browser.pause(3000)
+  })
+
+  it('Check possibility to return to the Login page', async () => {
+    const { forgotPasswordPage } = webPages()
+    await forgotPasswordPage.clickOn({ actionButton: { name: ForgotPasswordPageSelectors.returnLoginButton } })
+    expect(await browser.getUrl(), 'Go to the loginPage').to.contain(Link.loginPage)
     await browser.pause(3000)
   })
 

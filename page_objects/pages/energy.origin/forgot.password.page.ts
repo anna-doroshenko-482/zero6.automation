@@ -10,6 +10,7 @@ interface IForgotPasswordPage {
   actionButton?: IActionButton | IActionButton[]
   emailInput?: string
   resetPasswordButton?: string
+  returnLoginButton?: string
   popUpMessage?: string
   errorMessage?: string
   invalidInput?: string
@@ -19,6 +20,7 @@ interface IForgotPasswordPage {
 
 enum ForgotPasswordPageSelectors {
   resetPasswordButton = 'resetPasswordButton',
+  returnLoginButton = 'returnLoginButton',
 
 }
 
@@ -31,6 +33,7 @@ class ForgotPasswordPage extends Origin<IForgotPasswordPage> {
   errorMessage: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   emailInput: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   resetPasswordButton: string
+  returnLoginButton: string
 
   constructor() {
     super('Zero6')
@@ -42,6 +45,7 @@ class ForgotPasswordPage extends Origin<IForgotPasswordPage> {
     this.errorMessage = $('#j6ay96e81 div[role="alert"]')
     this.emailInput = $('input[name="email"]')
     this.resetPasswordButton = 'button[name="submit"]'
+    this.returnLoginButton = 'button[type="button"]'
   }
 
 
