@@ -8,6 +8,8 @@ interface IRegisterPage {
   actionButton?: IActionButton | IActionButton[]
   checkbox?: ICheckbox | ICheckbox[]
   continueButton?: string
+  register?: string
+  termsAndConditions?: string
   okRegisterModalButton?: string
   firstName?: string
   lastName?: string
@@ -24,6 +26,8 @@ interface IRegisterPage {
 
 enum RegisterPageSelectors {
   continueButton = 'continueButton',
+  register = 'register',
+  termsAndConditions = 'termsAndConditions',
   okRegisterModalButton = 'okRegisterModalButton',
   agreeTermConditions = 'agreeTermConditions',
   loginButton = 'loginButton',
@@ -34,8 +38,9 @@ class RegisterPage extends Origin<IRegisterPage> {
   private actionButton: ActionButton
   private checkbox: Checkbox
   private continueButton: string
+  private register: string
    loginButton: string
-  private agreeTermConditions: string
+  private termsAndConditions: string
    okRegisterModalButton: string
   private firstName: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private lastName: ChainablePromiseElement<Promise<WebdriverIO.Element>>
@@ -58,9 +63,10 @@ class RegisterPage extends Origin<IRegisterPage> {
     this.email = $('input[data-cy="email"]')
     this.telephone = $('input[data-cy="telephone"]')
     this.password = $('input[data-cy="password"]')
-    this.passwordConfirm = $('input[data-cy="password"]')
-    this.agreeTermConditions = ''
+    this.passwordConfirm = $('input[data-cy="repeatPassword"]')
+    this.termsAndConditions = 'input[name="termsAndConditions"]'
     this.continueButton = 'button[data-cy="register-button"]'
+    this.register = 'button[name="submit"]'
     this.thanksRegisterMessage = $('h2#mui-6')
     this.okRegisterModalButton = 'button[data-cy="user-registered-modal-ok"]'
     this.popUpMessage = $('#root')

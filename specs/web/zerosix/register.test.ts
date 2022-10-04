@@ -16,7 +16,7 @@ describe('Tests for Register page', function () {
     // await header.logOutAccount()
   })
 
-  it.only('Check possibility to Login from Register page', async () => {
+  it('Check possibility to Login from Register page', async () => {
     const { registerPage } = webPages()
     expect(await (await registerPage.haveLoginText).getText(), 'Possibility to Login').to.contain(registerData.haveLoginText)
     expect(await (await $(registerPage.loginButton))).to.be.exist
@@ -40,15 +40,15 @@ describe('Tests for Register page', function () {
       password: registerData.passwordAdmin,
       passwordConfirm: registerData.passwordAdmin,
     })
-    await registerPage.clickOn({ checkbox: { name: Checkboxes.agreeTermConditions } })
-    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.continueButton } })
+    await registerPage.clickOn({ checkbox: { name: Checkboxes.termsAndConditions } })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
     expect(await (await registerPage.thanksRegisterMessage).getText(), 'Register is done').to.contain(registerData.thanksRegisterMessage)
     expect(await $(registerPage.okRegisterModalButton), 'Confirmation modal button is visible').exist
     await browser.pause(3000)
     await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.okRegisterModalButton } })
   })
 
-  it('Check for failure register to the account with incorrect First / Last name', async () => {
+  it.only('Check for failure register to the account with incorrect First / Last name', async () => {
     const { registerPage } = webPages()
     await registerPage.typeIn({
       firstName: registerData.incorrectFirstName,
@@ -59,6 +59,9 @@ describe('Tests for Register page', function () {
       password: registerData.passwordAdmin,
       passwordConfirm: registerData.passwordAdmin,
     })
+    // await registerPage.clickOn({ checkbox: { name: Checkboxes.termsAndConditions } })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.termsAndConditions } })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
     const message = await registerPage.popUpMessage
     expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
     await browser.pause(3000)

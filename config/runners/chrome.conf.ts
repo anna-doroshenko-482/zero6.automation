@@ -15,7 +15,7 @@ export const config: WebdriverIO.Config = {
         w3c: false,
         args: [
           '--remote-debugging-port=9222',
-          '--window-size=1920,1080',
+          // '--window-size=1920,1080',
           '--start-maximized',
           '--incognito',
           '--no-sandbox',

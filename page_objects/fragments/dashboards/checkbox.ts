@@ -10,7 +10,7 @@ interface ICheckbox {
 }
 
 enum Checkboxes {
-  agreeTermConditions = '',
+  termsAndConditions = 'termsAndConditions',
 }
 
 class Checkbox {
