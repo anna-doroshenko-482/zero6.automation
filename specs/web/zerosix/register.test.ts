@@ -40,15 +40,29 @@ describe('Tests for Register page', function () {
       password: registerData.passwordAdmin,
       passwordConfirm: registerData.passwordAdmin,
     })
-    await registerPage.clickOn({ checkbox: { name: Checkboxes.termsAndConditions } })
+    await registerPage.clickTermConditions()
     await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
     expect(await (await registerPage.thanksRegisterMessage).getText(), 'Register is done').to.contain(registerData.thanksRegisterMessage)
     expect(await $(registerPage.okRegisterModalButton), 'Confirmation modal button is visible').exist
-    await browser.pause(3000)
-    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.okRegisterModalButton } })
   })
 
-  it.only('Check for failure register to the account with incorrect First / Last name', async () => {
+  it('Check for failure register to the account without Term and Conditions', async () => {
+    const { registerPage } = webPages()
+    await registerPage.typeIn({
+      firstName: registerData.firstNameAdmin,
+      lastName: registerData.lastNameAdmin,
+      email: registerData.emailAdmin,
+      telephone: registerData.telephoneAdmin,
+      password: registerData.passwordAdmin,
+      passwordConfirm: registerData.passwordAdmin,
+    })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
+    const message = await registerPage.popUpMessage
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorTermConditions)
+    await browser.pause(3000)
+  })
+
+  it('Check for failure register to the account with incorrect First / Last name', async () => {
     const { registerPage } = webPages()
     await registerPage.typeIn({
       firstName: registerData.incorrectFirstName,
@@ -59,11 +73,10 @@ describe('Tests for Register page', function () {
       password: registerData.passwordAdmin,
       passwordConfirm: registerData.passwordAdmin,
     })
-    // await registerPage.clickOn({ checkbox: { name: Checkboxes.termsAndConditions } })
-    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.termsAndConditions } })
+    await registerPage.clickTermConditions()
     await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
     const message = await registerPage.popUpMessage
-    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorName)
     await browser.pause(3000)
   })
 
@@ -78,8 +91,9 @@ describe('Tests for Register page', function () {
       password: registerData.passwordAdmin,
       passwordConfirm: registerData.passwordAdmin,
     })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
     const message = await registerPage.popUpMessage
-    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorEmail)
     await browser.pause(3000)
   })
 
@@ -94,8 +108,9 @@ describe('Tests for Register page', function () {
       password: registerData.passwordAdmin,
       passwordConfirm: registerData.passwordAdmin,
     })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
     const message = await registerPage.popUpMessage
-    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorPhone)
     await browser.pause(3000)
   })
 
@@ -111,8 +126,9 @@ describe('Tests for Register page', function () {
       telephone: registerData.telephoneAdmin,
 
     })
+    await registerPage.clickOn({ actionButton: { name: RegisterPageSelectors.register } })
     const message = await registerPage.popUpMessage
-    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorRegister)
+    expect(await message.getText(), 'Incorrect data input').to.contain(registerData.errorPas)
     await browser.pause(3000)
   })
 

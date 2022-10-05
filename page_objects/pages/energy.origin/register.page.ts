@@ -40,7 +40,7 @@ class RegisterPage extends Origin<IRegisterPage> {
   private continueButton: string
   private register: string
    loginButton: string
-  private termsAndConditions: string
+   termsAndConditions: string
    okRegisterModalButton: string
   private firstName: ChainablePromiseElement<Promise<WebdriverIO.Element>>
   private lastName: ChainablePromiseElement<Promise<WebdriverIO.Element>>
@@ -67,11 +67,18 @@ class RegisterPage extends Origin<IRegisterPage> {
     this.termsAndConditions = 'input[name="termsAndConditions"]'
     this.continueButton = 'button[data-cy="register-button"]'
     this.register = 'button[name="submit"]'
-    this.thanksRegisterMessage = $('h2#mui-6')
+    this.thanksRegisterMessage = $('div[role="dialog"]')
     this.okRegisterModalButton = 'button[data-cy="user-registered-modal-ok"]'
     this.popUpMessage = $('#root')
     this.haveLoginText = $('p.MuiTypography-root')
     this.loginButton = 'button[data-cy="register-now-button"]'
+  }
+
+  async clickTermConditions(){
+    const el = await $(this.termsAndConditions)
+    await el.waitForDisplayed
+    await el.waitForClickable
+    await el.click()
   }
 
 
