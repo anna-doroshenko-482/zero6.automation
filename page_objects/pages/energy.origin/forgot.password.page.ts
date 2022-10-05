@@ -48,14 +48,6 @@ class ForgotPasswordPage extends Origin<IForgotPasswordPage> {
     this.returnLoginButton = 'button[type="button"]'
   }
 
-  async getPopUpMessage(){
-    await browser.pause(3000)
-    const popUp = await this.errorMessage
-    const popUpText = await popUp.getText()
-    return popUpText
-  }
-
-
 
 }
 

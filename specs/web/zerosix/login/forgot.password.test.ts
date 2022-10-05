@@ -45,16 +45,13 @@ describe('Tests for resetting password functionality', function () {
     expect(await browser.getUrl(), 'Stay the same page').to.contain(Link.forgotPasswordPage)
   })
 
-  it.only('Check functionality for exist email ', async () => {
+  it('Check functionality for exist email ', async () => {
     const { forgotPasswordPage,loginPage  } = webPages()
     await forgotPasswordPage.typeIn({
       emailInput: forgotPasswordData.existEmail,
     })
     await forgotPasswordPage.clickOn({ actionButton: { name: ForgotPasswordPageSelectors.resetPasswordButton } })
     expect(await browser.getUrl(), 'Go to the loginPage').to.contain(Link.loginPage)
-    // const message = await loginPage.popUpSuccessForgotPassword
-    // expect(await message.getText(), 'Stay the same page').to.contain(loginData.popUpSuccessForgotPassword)
-    // await browser.pause(3000)
   })
 
 
