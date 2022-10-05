@@ -42,10 +42,17 @@ class ForgotPasswordPage extends Origin<IForgotPasswordPage> {
     this.header = $('h4')
     this.instruction = $('h5')
     this.invalidInput = $('p#mui-8-helper-text')
-    this.errorMessage = $('#j6ay96e81 div[role="alert"]')
+    this.errorMessage = $('.jss47')
     this.emailInput = $('input[name="email"]')
     this.resetPasswordButton = 'button[name="submit"]'
     this.returnLoginButton = 'button[type="button"]'
+  }
+
+  async getPopUpMessage(){
+    await browser.pause(3000)
+    const popUp = await this.errorMessage
+    const popUpText = await popUp.getText()
+    return popUpText
   }
 
 
